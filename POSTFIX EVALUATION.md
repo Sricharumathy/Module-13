@@ -32,12 +32,51 @@ To write a Python program to evaluate a user-given Postfix expression that conta
 ### PROGRAM
 
 ```
+#Reg.no 212222060279
+#Name Thiyaga Sri Charumathy
+
+OPERATORS=set(['','-','+','%','/','*']) 
+
+
+def evaluate_postfix(expression):
+    stack=[] 
+    for i in expression:
+        if i not in OPERATORS:
+            stack.append(i)  
+        
+        else:
+            a=stack.pop()  
+            b=stack.pop()
+        
+            if i=='+':
+                res=int(b)+int(a)  
+            elif i=='-':
+                res=int(b)-int(a)    
+            elif i=='*':
+                res=int(b)*int(a)
+            elif i=='%':
+                res=int(b)%int(a) 
+            elif i=='/':
+                res=int(b)/int(a)
+            elif i=='':
+                res=int(b)**int(a)
+    
+            stack.append(res) 
+    return stack[0]
+
+expression =input()
+print('postfix expression: ',expression)
+print('Evaluation result: ',evaluate_postfix(expression))
+
 
 
 ```
 
 ### OUTPUT
+<img width="703" height="151" alt="image" src="https://github.com/user-attachments/assets/bd36fb95-9fd0-4b42-9582-26a2cf3c1f73" />
+
 
 
 ### RESULT
+Thus Python program to evaluate a user-given Postfix expression that contains Multiplication and Addition operators using the stack concept is successfully verified
 
